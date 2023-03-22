@@ -1,0 +1,127 @@
+[
+    {
+      "name": "French fries",
+      "category": "Frozen Foods",
+      "price": 5.49
+    },
+    {
+        "name": "Chicken nuggets",
+        "category": "Frozen Foods",
+        "price": 6.69
+      },
+      {
+        "name": "Beef burritos",
+        "category": "Frozen Foods",
+        "price": 5.49
+      },
+      {
+        "name": "French vanilla ice cream",
+        "category": "Frozen Foods",
+        "price": 3.49
+      },
+      {
+        "name": "Banana",
+        "category": "Produce",
+        "price": 0.25
+      },
+      {
+        "name": "Russet potato",
+        "category": "Produce",
+        "price": 0.50
+      },
+      {
+        "name": "Blueberries",
+        "category": "Produce",
+        "price": 3.99
+      },
+      {
+        "name": "Chopped lettuce (bag)",
+        "category": "Produce",
+        "price": 2.99
+      },
+      {
+        "name": "Fruit cereal",
+        "category": "Dry Grocery",
+        "price": 5.49
+      },
+      {
+        "name": "Mild Salsa",
+        "category": "Dry Grocery",
+        "price": 3.49
+      },
+      {
+        "name": "Tortilla chips",
+        "category": "Dry Grocery",
+        "price": 4.49
+      },
+      {
+        "name": "Sour candy",
+        "category": "Dry Grocery",
+        "price": 3.99
+      },
+      {
+        "name": "Fluffy towel",
+        "category": "Home/Kitchen",
+        "price": 10.00
+      },
+      {
+        "name": "Artifical flower",
+        "category": "Home/Kitchen",
+        "price": 5.00
+      },
+      {
+        "name": "Decorative vase",
+        "category": "Home/Kitchen",
+        "price": 12.00
+      },
+      {
+        "name": "Sherpa blanket",
+        "category": "Home/Kitchen",
+        "price": 20.00
+      },
+      {
+        "name": "Women's swim top",
+        "category": "Apparel",
+        "price": 20.00
+      },
+      {
+        "name": "Women's swim bottom",
+        "category": "Apparel",
+        "price": 20.00
+      },
+      {
+        "name": "Men's chino short",
+        "category": "Apparel",
+        "price": 24.99
+      },
+      {
+        "name": "Men's tee",
+        "category": "Apparel",
+        "price": 6.00
+      },
+      {
+        "name": "Baseball cap",
+        "category": "Apparel",
+        "price": 6.00
+      },
+      {
+        "name": "Makeup remover",
+        "category": "Beauty",
+        "price": 3.99
+      },
+      {
+        "name": "Body wash",
+        "category": "Beauty",
+        "price": 5.99
+      },
+      {
+        "name": "Body lotion",
+        "category": "Beauty",
+        "price": 7.99
+      },
+      {
+        "name": "Face wash",
+        "category": "Beauty",
+        "price": 6.49
+      }
+  ]
