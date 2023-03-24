@@ -47,8 +47,6 @@ router.get("/product/:id", async (req, res) => {
   }
 });
 
-
-
 // Login route
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect to the homepage
@@ -61,5 +59,3 @@ router.get("/login", (req, res) => {
 });
 
 module.exports = router;
-
-
