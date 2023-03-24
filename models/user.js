@@ -1,5 +1,5 @@
 // Maria
-
+const router = require('express').Router();
 // Login route
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect to the homepage
