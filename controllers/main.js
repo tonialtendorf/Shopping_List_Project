@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { prouduct } = require("../models");
+const { product } = require("../models");
 
 // GET all galleries for homepage - requesting for homepage
 router.get("/", async (req, res) => {
