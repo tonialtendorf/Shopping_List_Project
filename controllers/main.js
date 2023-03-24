@@ -47,19 +47,7 @@ router.get("/product/:id", async (req, res) => {
   }
 });
 
-// // GET one painting
-// router.get("/painting/:id", async (req, res) => {
-//   try {
-//     const dbPaintingData = await Painting.findByPk(req.params.id);
 
-//     const painting = dbPaintingData.get({ plain: true });
-//     // TODO: Send over the 'loggedIn' session variable to the 'homepage' template
-//     res.render("painting", { painting });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
 
 // Login route
 router.get("/login", (req, res) => {
@@ -73,3 +61,5 @@ router.get("/login", (req, res) => {
 });
 
 module.exports = router;
+
+
