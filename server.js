@@ -19,10 +19,11 @@ const hbs = exphbs.create({ helpers });
 
 // Set up sessions with cookies
 const sess = {
-  secret: 'Tindog',
-  cookie: {    // Stored in milliseconds
+  secret: "Tindog",
+  cookie: {
+    // Stored in milliseconds
     maxAge: 24 * 60 * 60 * 1000, // expires after 1 day
-},
+  },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
@@ -40,7 +41,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
-// app.use(routes);
+app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));
