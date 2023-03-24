@@ -19,18 +19,10 @@ const hbs = exphbs.create({ helpers });
 
 // Set up sessions with cookies
 const sess = {
-<<<<<<< Updated upstream
   secret: 'Tindog',
   cookie: {    // Stored in milliseconds
     maxAge: 24 * 60 * 60 * 1000, // expires after 1 day
 },
-=======
-  secret: "Tindog",
-  cookie: {
-    // app will be logged out past this time
-    maxAge: 24 * 60 * 60 * 1000,
-  },
->>>>>>> Stashed changes
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
