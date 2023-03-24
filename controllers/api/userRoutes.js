@@ -10,8 +10,9 @@ router.post("/", async (req, res) => {
       password: req.body.password,
     });
 
+    // TODO: Set up sessions with the 'loggedIn' variable
     req.session.save(() => {
-      req.session.loggedIn = true;
+      // TODO: Set the 'loggedIn' session variable to 'true'
 
       res.status(200).json(dbUserData);
     });
@@ -47,11 +48,11 @@ router.post("/login", async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.loggedIn = true;
+      // TODO: Once the user successfully logs in, set up sessions with the 'loggedIn' variable
 
       res
         .status(200)
-        .json({ user: dbUserData, message: "Welcome to your Shopping List!" });
+        .json({ user: dbUserData, message: "You are now logged in!" });
     });
   } catch (err) {
     console.log(err);
@@ -61,6 +62,7 @@ router.post("/login", async (req, res) => {
 
 // Logout
 router.post("/logout", (req, res) => {
+  // When the user logs out, the session is destroyed
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
