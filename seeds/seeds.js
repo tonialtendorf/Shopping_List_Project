@@ -1,11 +1,9 @@
 //Jessie
-const sequelize = require('../config/connection');
-const { User, Product } = require('../models');
+const sequelize = require("../config/connection");
+const { User, Product } = require("../models");
 
-//maria will create userData.json
-// const userData = require('./userData.json');
-const productData = require('./products.json');
-
+const userData = require("./userData.json");
+const productData = require("./products.json");
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
