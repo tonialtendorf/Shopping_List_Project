@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List</title>
+    <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Your customized shopping list!</h1>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Shopping List <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Login <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Logout <span class="sr-only">(current)</span></a>
+                    </li>
+                    </nav>
+                    
+                    <main>
+                        <div class="h-100 w-full flex items-center justify-center bg-teal-lightest font-sans">
+                            <div class="bg-white rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg">
+                                <div class="mb-4">
+                                    <h1 class="text-grey-darkest">Todo List</h1>
+                                    <div class="flex mt-4">
+                                        <input class="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker" placeholder="Add Todo">
+                                        <button class="flex-no-shrink p-2 border-2 rounded text-teal border-teal hover:text-white hover:bg-teal">Add</button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex mb-4 items-center">
+                                        <p class="w-full text-grey-darkest">Add another component to Tailwind Components</p>
+                                        <button class="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-white text-green border-green hover:bg-green">Done</button>
+                                        <button class="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-white hover:bg-red">Remove</button>
+                                    </div>
+                                      <div class="flex mb-4 items-center">
+                                        <p class="w-full line-through text-green">Submit Todo App Component to Tailwind Components</p>
+                                        <button class="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-white text-grey border-grey hover:bg-grey">Not Done</button>
+                                        <button class="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-white hover:bg-red">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        <aside>
+            <h2>Thank you for shopping with Target!</h2>
+        </aside>
+        <div class="product">
+
+        </div>
+    </main>
+    <!-- If the user is logged in, load the JS script for when they logout -->
+
+    <script src="/js/logout.js"></script>
+    <script src="./public/js/script.js"></script>
+
+</body>
+
+</html>
