@@ -6,7 +6,6 @@ router.get("/", async (req, res) => {
   //try catch next.
 });
 
-// GET all galleries for homepage - requesting for homepage
 router.get("/", async (req, res) => {
   try {
     const dbProductData = await product.findAll({
@@ -44,7 +43,7 @@ router.get("/product/:id", async (req, res) => {
     });
 
     const product = dbProductData.get({ plain: true });
-    // TODO: Send over the 'loggedIn' session variable to the 'gallery' template
+
     res.render("product", { product });
   } catch (err) {
     console.log(err);
