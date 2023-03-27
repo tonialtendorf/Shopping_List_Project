@@ -10,8 +10,9 @@ router.get("/", async (req, res) => {
   } catch (error) {
     res.status(404).json(error);
   }
-  //try catch next.
 });
+
+
 
 // router.get("/", async (req, res) => {
 //   try {
