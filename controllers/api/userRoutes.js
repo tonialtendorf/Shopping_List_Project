@@ -1,5 +1,7 @@
+
 //Express required, and router onject created
 const express = require("express")
+
 // const router = express.Router()
 const router = require("express").Router();
 //User model imported from ../../models directory

@@ -1,9 +1,18 @@
 const router = require("express").Router();
+
 const { Product } = require("../models");
+const { product, User } = require("../models");
+
 
 router.get("/", async (req, res) => {
-  res.render("layouts/main");
-  //try catch next.
+  try {
+    const userData = await User.findAll({});
+    const users = userData.map((user) => user.get({ plain: true }));
+    console.log(users);
+    res.render("homepage");
+  } catch (error) {
+    res.status(404).json(error);
+  }
 });
 
 router.get("/", async (req, res) => {
@@ -17,19 +26,32 @@ router.get("/", async (req, res) => {
       ],
     });
 
-    const products = dbProductData.map((product) =>
-      product.get({ plain: true })
-    );
 
-    res.render("homepage", {
-      products,
-      loggedIn: req.session.logged,
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+
+// router.get("/", async (req, res) => {
+//   try {
+//     const dbProductData = await product.findAll({
+//       include: [
+//         {
+//           model: Product,
+//           attributes: ["name", "category", "price"],
+//         },
+//       ],
+//     });
+
+//     const products = dbProductData.map((product) =>
+//       product.get({ plain: true })
+//     );
+
+//     res.render("homepage", {
+//       products,
+//       loggedIn: req.session.logged,
+//     });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 router.get("/product/:id", async (req, res) => {
   try {
