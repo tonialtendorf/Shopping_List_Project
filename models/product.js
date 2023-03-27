@@ -23,6 +23,7 @@ Product.init(
       type: DataTypes.DECIMAL,
       allowNull: false
     },
+    //add user ID 
   },
   {
     sequelize,

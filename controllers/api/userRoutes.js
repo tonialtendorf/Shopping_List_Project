@@ -1,8 +1,13 @@
+
+//Express required, and router onject created
+const express = require("express")
+
 // const router = express.Router()
 const router = require("express").Router();
+//User model imported from ../../models directory
 const { User } = require("../../models");
 
-// CREATE new user
+// CREATE new user record. Sends user data as JSON response. If error, return 500 status
 router.post("/", async (req, res) => {
   try {
     const dbUserData = await User.create({
@@ -10,6 +15,7 @@ router.post("/", async (req, res) => {
       email: req.body.email,
       password: req.body.password,
     });
+
 
    //Set up sessions with the 'loggedIn' variable
     req.session.save(() => {
@@ -23,7 +29,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Login
+// POST route handler. Retrieved user data using User.findOne, checks password checkPassword(), sets up sessions with loggedIn variable
 router.post("/login", async (req, res) => {
   try {
     const dbUserData = await User.findOne({

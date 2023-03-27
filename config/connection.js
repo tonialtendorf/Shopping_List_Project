@@ -1,8 +1,12 @@
+//Import sequelize
 const Sequelize = require("sequelize");
+// Import and load .env
 require("dotenv").config();
 
+//Declare sequelize variable
 let sequelize;
 
+// Creates sequelize instance in that URL. If not, will create sequelize instance using db_name, db_user, and db_password
 if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
@@ -17,5 +21,5 @@ if (process.env.JAWSDB_URL) {
     }
   );
 }
-
+//Export sequelize
 module.exports = sequelize;
