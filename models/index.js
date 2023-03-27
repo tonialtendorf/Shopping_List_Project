@@ -1,4 +1,8 @@
 // Jessie
 const User = require('./User');
+const Product = require('./Product');
 
-module.exports = { User };
+//Need to set up an association
+router.use('/product', productRoutes);
+
+module.exports = { User, Product };

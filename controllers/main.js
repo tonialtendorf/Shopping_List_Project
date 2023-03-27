@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { product } = require("../models");
+const { Product } = require("../models");
 
 router.get("/", async (req, res) => {
   res.render("layouts/main");
@@ -8,7 +8,7 @@ router.get("/", async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    const dbProductData = await product.findAll({
+    const dbProductData = await Product.findAll({
       include: [
         {
           model: Product,
