@@ -15,9 +15,22 @@ router.get("/", async (req, res) => {
   }
 });
 
+// router.get("/", async (req, res) => {
+//   try {
+//     const dbProductData = await Product.findAll({
+//       include: [
+//         {
+//           model: Product,
+//           attributes: ["name", "category", "price"],
+//         },
+//       ],
+//   });
+
+
+
 router.get("/", async (req, res) => {
   try {
-    const dbProductData = await Product.findAll({
+    const dbProductData = await product.findAll({
       include: [
         {
           model: Product,
@@ -26,32 +39,19 @@ router.get("/", async (req, res) => {
       ],
     });
 
+    const products = dbProductData.map((product) =>
+      product.get({ plain: true })
+    );
 
-
-// router.get("/", async (req, res) => {
-//   try {
-//     const dbProductData = await product.findAll({
-//       include: [
-//         {
-//           model: Product,
-//           attributes: ["name", "category", "price"],
-//         },
-//       ],
-//     });
-
-//     const products = dbProductData.map((product) =>
-//       product.get({ plain: true })
-//     );
-
-//     res.render("homepage", {
-//       products,
-//       loggedIn: req.session.logged,
-//     });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
+    res.render("homepage", {
+      products,
+      loggedIn: req.session.logged,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 router.get("/product/:id", async (req, res) => {
   try {

@@ -5,7 +5,7 @@ const { Product } = require('../../models');
 const withAuth = require('../../utils/auth')
 
 //GET route for '/' all product data. findAll retrieves data, sends as JSON response. If error, return 500 status
-router.get('/', async (req, res) => {
+// router.get('/', async (req, res) => {
 router.get("/shoppingList", withAuth, async (req, res) => {
 
   try {
@@ -13,11 +13,12 @@ router.get("/shoppingList", withAuth, async (req, res) => {
     res.json(productData);
 
   } catch (err) {res.status(500).json(err)}
-})
+});
 
 //POST route for '/' new product data sent in req.body. Creates new product record and sends as JSON response. If error, return 400 status
 router.post('/', async (req, res) => {
-    res.render("shopping");
+    try { 
+      res.render("shopping");
   } catch (error) {
     res.status(404).json(error);
   }
@@ -48,4 +49,4 @@ module.exports = router;
 //   } catch (err) {
 //     res.status(500).json(err);
 //   }
-// });
+// })
