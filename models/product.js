@@ -23,7 +23,13 @@ Product.init(
       type: DataTypes.DECIMAL,
       allowNull: false
     },
-    //add user ID 
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
+      }
+    }
   },
   {
     sequelize,

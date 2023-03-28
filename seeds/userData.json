@@ -1,5 +1,4 @@
 [
-
     {
       "name": "Taryn",
       "email": "taryn_f@hotmail.com",
@@ -21,26 +20,4 @@
       "password": "password12345"
     }
   ]
-
-  {
-    "name": "Taryn",
-    "email": "taryn_f@hotmail.com",
-    "password": "password123"
-  },
-  {
-    "name": "Toni",
-    "email": "toni_a@gmail.com",
-    "password": "password123"
-  },
-  {
-    "name": "Jessie",
-    "email": "jessie_m@aol.com",
-    "password": "password12345"
-  },
-  {
-    "name": "Maria",
-    "email": "maria_j@msn.com",
-    "password": "password12345"
-  }
-]
 

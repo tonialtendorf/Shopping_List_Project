@@ -4,9 +4,12 @@
 }
 body {
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
   font-family: 'Open Sans', sans-serif;
+  background-color: darkgray;
 }
+
+
 main {
   padding: 1rem;
   margin: auto;
@@ -74,5 +77,58 @@ ul {
 li {
   padding: 0.75rem 1rem;
   border-radius: 0.25rem;
+}
+
+form {
+  font-size: 22px;
+}
+
+input [type="text"]{
+  background-color: red;
+}
+
+#addNeed {
+  background-color: lightgray;
+
+}
+
+#addHave {
+  background-color: lightgray;
+  
+}
+
+h1 {
+  color: #c00;
+  font-size: 50px;
+}
+
+h2{
+  color: darkblue;
+  text-align: left;
+}
+
+.list {
+  color: gray;
+  font-size: 22px;
+  padding: 0 !important;
+  width: 500px;
+  border: 1.3px solid gray
+}
+
+.list li {
+  list-style: none;
+  background-color: lightcyan;
+  border-bottom: 1.3px solid dotted lightblue;
+  text-indent: 25px;
+  height: auto;
+  padding: 10px;
+  text-transform: capitalize;
+  
+}
+
+li a {
+  float: right;
+  text-decoration: none;
+  color: red;
 }
 

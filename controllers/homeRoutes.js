@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
 
     const products = productData.map((product) => product.get({ plain: true }));
 
-    res.render('main', {
+    res.render('homepage', {
       products,
       logged_in: req.session.logged_in
     });
@@ -25,9 +25,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-
-
-router.get("/product/:id", async (req, res) => {
+router.get("/shoppingList/:id", async (req, res) => {
   try {
     const productData = await Product.findByPk(req.params.id, {
       include: [
@@ -40,7 +38,7 @@ router.get("/product/:id", async (req, res) => {
 
     const product = productData.get({ plain: true });
 
-    res.render("product", {
+    res.render("shopping", {
       ...product,
       logged_in: req.session.logged_in
     });
@@ -49,39 +47,61 @@ router.get("/product/:id", async (req, res) => {
   }
 });
 
-// router.get("/", async (req, res) => {
-//   try {
-//     const userData = await User.findAll({
-//       include: [
-//       {
-//         model: User,
-//         attributes: ['name']
-//       }
-//       ],
-//     });
-//     const users = userData.map((user) => user.get({ plain: true }));
-//     console.log(users);
-//     res.render("homepage");
-//   } catch (error) {
-//     res.status(404).json(error);
-//   }
-// });
-router.get("/shoppingList", withAuth, async (req, res) => {  
+
+router.get("/shoppingList", async (req, res) => {  
   try {
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Product }],
+    const productData = await Product.findAll({
+      include: [
+      {
+        model: User,
+        attributes: ['name']
+      }
+      ],
     });
 
-    const user = userData.get({ plain: true });
+    const products = productData.map((product) => product.get({ plain: true }));
+
     res.render('shopping', {
-      ...user,
-      logged_in: true
+      products,
+      logged_in: req.session.logged_in
     });
-  } catch (err) {
-    res.status(500).json(err);
+  } catch (error) {
+    res.status(404).json(error);
   }
 });
+
+// 
+
+// Login route
+router.get("/login", (req, res) => {
+  // If the user is already logged in, redirect to the homepage
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+  // Otherwise, render the 'login' template
+  res.render("login");
+});
+
+module.exports = router;
+
+// router.get("/shoppingList", async (req, res) => {  
+  //   try {
+  //     const userData = await User.findByPk(req.session.user_id, {
+  //       attributes: { exclude: ['password'] },
+  //       include: [{ model: Product }],
+  //     });
+  
+  //     const user = userData.get({ plain: true });
+  //     res.render('shopping', {
+  //       ...user,
+  //       logged_in: true
+  //     });
+  //   } catch (err) {
+  //     res.status(500).json(err);
+  //   }
+  // });
+
 
 // router.get("/", async (req, res) => {
 //   try {
@@ -121,16 +141,21 @@ router.get("/shoppingList", withAuth, async (req, res) => {
 //   }
 // });
 
+// router.get("/", async (req, res) => {
+//   try {
+//     const userData = await User.findAll({
+//       include: [
+//       {
+//         model: User,
+//         attributes: ['name']
+//       }
+//       ],
+//     });
+//     const users = userData.map((user) => user.get({ plain: true }));
+//     console.log(users);
+//     res.render("homepage");
+//   } catch (error) {
+//     res.status(404).json(error);
+//   }
+// });
 
-// Login route
-router.get("/login", (req, res) => {
-  // If the user is already logged in, redirect to the homepage
-  if (req.session.loggedIn) {
-    res.redirect("/");
-    return;
-  }
-  // Otherwise, render the 'login' template
-  res.render("login");
-});
-
-module.exports = router;
