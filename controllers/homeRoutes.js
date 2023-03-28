@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
 
     const products = productData.map((product) => product.get({ plain: true }));
 
-    res.render('homepage', {
+    res.render('main', {
       products,
       logged_in: req.session.logged_in
     });
