@@ -1,66 +1,61 @@
 
-//Express required, and router object created
-const express = require("express")
+// //Express required, and router object created
+// const express = require("express")
 
-// const router = express.Router()
 const router = require("express").Router();
 //User model imported from ../../models directory
 const { User } = require("../../models");
 
 // CREATE new user record. Sends user data as JSON response. If error, return 500 status
-router.post("/", async (req, res) => {
+router.post('/', async (req, res) => {
   try {
-    const dbUserData = await User.create({
-      username: req.body.username,
-      email: req.body.email,
-      password: req.body.password,
-    });
+    const userData = await User.create(req.body);
 
-
-   //Set up sessions with the 'loggedIn' variable
     req.session.save(() => {
-      // Set the 'loggedIn' session variable to 'true'
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
 
-      res.status(200).json(dbUserData);
+      res.status(200).json(userData);
     });
   } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
+    res.status(400).json(err);
   }
 });
 
 // POST route handler. Retrieved user data using User.findOne, checks password checkPassword(), sets up sessions with loggedIn variable
 router.post("/login", async (req, res) => {
   try {
-    const dbUserData = await User.findOne({
+    const userData = await User.findOne({
       where: {
         email: req.body.email,
       },
     });
 
-    if (!dbUserData) {
+    if (!userData) {
       res
         .status(400)
-        .json({ message: "Incorrect email or password. Please try again!" });
+        .json({ message: "User information not found, please try again!" });
       return;
     }
 
-    const validPassword = await dbUserData.checkPassword(req.body.password);
+    const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: "Incorrect email or password. Please try again!" });
+        .json({ message: "User information not found, please try again!" });
       return;
     }
 
     req.session.save(() => {
       // Once the user successfully logs in, set up sessions with the 'loggedIn' variable
 
-      res
-        .status(200)
-        .json({ user: dbUserData, message: "You are now logged in!" });
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+      
+      res.json({ user: userData, message: 'You are now logged in!' });
     });
+    
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -70,7 +65,7 @@ router.post("/login", async (req, res) => {
 // Logout
 router.post("/logout", (req, res) => {
   // When the user logs out, the session is destroyed
-  if (req.session.loggedIn) {
+  if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
     });
@@ -81,3 +76,23 @@ router.post("/logout", (req, res) => {
 
 module.exports = router;
 
+// router.post("/", async (req, res) => {
+//   try {
+//     const userData = await User.create({
+//       username: req.body.username,
+//       email: req.body.email,
+//       password: req.body.password,
+//     });
+
+
+//    //Set up sessions with the 'loggedIn' variable
+//     req.session.save(() => {
+//       // Set the 'loggedIn' session variable to 'true'
+
+//       res.status(200).json(dbUserData);
+//     });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });

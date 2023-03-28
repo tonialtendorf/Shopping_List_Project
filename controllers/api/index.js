@@ -6,7 +6,7 @@ const productRoutes = require("./productRoutes");
 const userRoutes = require("./userRoutes");
 
 //Use productRoutes for any requests with /product
-router.use("/product", productRoutes);
+router.use("/shoppingList", productRoutes);
 
 //Use userRoutes for any requests with /user
 router.use("/user", userRoutes);

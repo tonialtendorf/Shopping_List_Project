@@ -1,4 +1,3 @@
-//Jessie
 const sequelize = require("../config/connection");
 const { User, Product } = require("../models");
 
