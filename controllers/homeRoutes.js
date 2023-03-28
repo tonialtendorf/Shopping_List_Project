@@ -60,7 +60,6 @@ router.get("/shoppingList", async (req, res) => {
     });
 
     const products = productData.map((product) => product.get({ plain: true }));
-
     res.render('shopping', {
       products,
       logged_in: req.session.logged_in

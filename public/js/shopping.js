@@ -53,37 +53,61 @@
 //     }
 //   });
 
-$function() {
-    const callback = function(event) {
-        event.preventDefault();
-        const input = $('input[type=text][name=item]');
+// $function() {
+//     const callback = function(event) {
+//         event.preventDefault();
+//         const input = $('input[type=text][name=item]');
 
-        value= input.val(),
-        need = ($(event.target).attr('id') === 'addNeed'),
+//         value= input.val(),
+//         need = ($(event.target).attr('id') === 'addNeed'),
 
-        item = $('<li><input type="checkbox" name="item"> '+ value + ' <a href="#">remove</a></li>'),
+//         item = $('<li><input type="checkbox" name="item"> '+ value + ' <a href="#">remove</a></li>'),
 
-        list = (need) ? $('ul').first() : $('ul').last();
+//         list = (need) ? $('ul').first() : $('ul').last();
 
-        input.val("");
-        input.focus();
+//         input.val("");
+//         input.focus();
 
-        if (value === "") return;
+//         if (value === "") return;
 
-        if (!need) {
-            item.find('input').attr('checked', true);
+//         if (!need) {
+//             item.find('input').attr('checked', true);
+//         }
+
+//         $('#addHave, #addNeed').click(callback);
+
+//         $('ul').on('click', 'li a', function(event) {
+//             $(event.target).parent('li').remove();
+//         });
+
+//         $('ul').on('click', 'input[type=checkbox]', function(event) {
+//             const listItem = $(event.target).parent('li'),
+//             list = (event.target.checked) ? $('ul').last() : $('ul').first();
+//             listItem.appendTo(list);
+//         })
+//     }
+// }
+
+
+const itembtn = document.getElementById('item-btn')
+
+itembtn.addEventListener('click', async function() {
+    const name = document.getElementById('itemList').value
+    console.log(name)
+    console.log($("#itemList").find(':selected').attr('data-category'));
+    const price = $("#itemList").find(':selected').attr('data-price');
+    const category = $("#itemList").find(':selected').attr('data-category');
+    const res = await fetch('/api/shoppingList', {
+        method: 'POST',
+        body: JSON.stringify({name, price, category}), 
+        headers: {
+            'Content-Type': 'application/json'
         }
-
-        $('#addHave, #addNeed').click(callback);
-
-        $('ul').on('click', 'li a', function(event) {
-            $(event.target).parent('li').remove();
-        });
-
-        $('ul').on('click', 'input[type=checkbox]', function(event) {
-            const listItem = $(event.target).parent('li'),
-            list = (event.target.checked) ? $('ul').last() : $('ul').first();
-            listItem.appendTo(list);
-        })
+    })
+    if (res.ok) {
+        document.location.reload()
+    } else {
+        alert('Something Went Wrong')
     }
-}
+})
+
