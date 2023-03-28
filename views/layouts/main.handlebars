@@ -22,16 +22,16 @@
   <header class="main-header">
       <nav class= "main-header__nav">
         <ul class ="main-header__item-list">
-          <a class= "main-header__item" href="/">Home</a>
-          <a class= "main-header__item" href="/product">View Products</a>
-          <a class= "main-header__item" href="/shoppingList">Shopping List</a>
+          <a class= "main-header__item text-white" href="/">Home</a>
+          <a class= "main-header__item text-white" href="/product">View Products</a>
+          <a class= "main-header__item text-white" href="/shoppingList">Shopping List</a>
           
           <!-- If the user is logged in, show a logout button -->
           {{#if loggedIn}}
-          <a id="logout" class="btn-no-style">Logout</a>
+          <a id="logout" class="btn-no-style text-white">Logout</a>
           {{else}}
           <!-- Otherwise, show a link to login -->
-          <a class="main-header__item" href="/login">Login</a>
+          <a class="main-header__item text-white" href="/login">Login</a>
           {{/if}}
         </ul>
       </nav>
