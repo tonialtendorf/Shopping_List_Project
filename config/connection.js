@@ -1,3 +1,4 @@
+
 //Import sequelize
 const Sequelize = require("sequelize");
 // Import and load .env
@@ -23,3 +24,5 @@ if (process.env.JAWSDB_URL) {
 }
 //Export sequelize
 module.exports = sequelize;
+
+
