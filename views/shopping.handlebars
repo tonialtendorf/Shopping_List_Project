@@ -30,5 +30,20 @@
     <li><input type="checkbox" name="item" checked>Steak <a href='#'>&#10006;</a></li>
 </ul>
 
+
+<label for="cars">Choose a shopping list item:</label>
+
+<select id="itemList">
+    
+    {{#each products as |product| }}
+  <option value='{{product.name}}' data-price="{{product.price}}" data-category="{{product.category}}"> {{product.name}}</option>
+    {{/each}}
+
+</select>
+<button id="item-btn">Add Item</button>
+
+
 </main>
-{{!-- <script src="/public/js/shopping.js"></script> --}}
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="./js/shopping.js"></script>
