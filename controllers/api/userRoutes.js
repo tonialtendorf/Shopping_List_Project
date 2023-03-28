@@ -1,5 +1,5 @@
 
-//Express required, and router onject created
+//Express required, and router object created
 const express = require("express")
 
 // const router = express.Router()
