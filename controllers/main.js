@@ -15,6 +15,10 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/shoppingList", (req, res) => {  
+  res.render("shopping");
+});
+
 // router.get("/", async (req, res) => {
 //   try {
 //     const dbProductData = await Product.findAll({
