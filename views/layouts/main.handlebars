@@ -1,1 +1,51 @@
-// Taryn
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ pageTitle }}</title>
+ <link rel="stylesheet" href="/css/main.css">
+    {{#if formsCSS}}
+        <link rel="stylesheet" href="/css/forms.css">
+    {{/if}}
+    {{#if productCSS}}
+        <link rel="stylesheet" href="/css/product.css">
+    {{/if}}
+   <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+</head>
+
+<body>
+  <header class="main-header">
+      <nav class= "main-header__nav">
+        <ul class ="main-header__item-list">
+          <a class= "main-header__item" href="/">Home</a>
+          <a class= "main-header__item" href="/product">View Products</a>
+          <a class= "main-header__item" href="/shoppingList">Shopping List</a>
+          
+          <!-- If the user is logged in, show a logout button -->
+          {{#if loggedIn}}
+          <a id="logout" class="btn-no-style">Logout</a>
+          {{else}}
+          <!-- Otherwise, show a link to login -->
+          <a class="main-header__item" href="/login">Login</a>
+          {{/if}}
+        </ul>
+      </nav>
+  </header>
+
+  <main>
+      {{{body}}}
+  </main>
+
+  <!-- If the user is logged in, load the JS script for when they logout -->
+  {{#if loggedIn}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+
+</body>
+
+</html>
