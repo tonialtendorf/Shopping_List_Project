@@ -21,10 +21,7 @@ main {
   padding: 0 1.5rem;
   font-size: 20px;
 }
-a {
- all: unset;
- text-decoration: none;
-}
+
 .main-header__nav {
   height: 100%;
   display: flex;
@@ -47,16 +44,7 @@ a {
   text-decoration: none;
  
 }
-.main-header__item a:hover,
-.main-header__item a:active,
-.main-header__item a.active {
-  color: #ffeb3b;
-}
-/* Add some spacing and a shadow to the form */
-form {
-  margin-bottom: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+
 /* Style the input field with some padding and a rounded border */
 input {
   padding: 0.75rem 1rem;
@@ -64,37 +52,14 @@ input {
 }
 /* Style the button with some padding and a rounded border */
 button {
-  padding: 0.75rem 1rem;
-  border-radius: 0.25rem;
-  background-color: black;
+  border-radius: 2px;
+  border-color: lightgray;
+  background-color: white;
 }
 /* Add some spacing and a shadow to the task list */
 ul {
   margin-top: 1.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-/* Style the task items with some padding and a rounded border */
-li {
-  padding: 0.75rem 1rem;
-  border-radius: 0.25rem;
-}
-
-form {
-  font-size: 22px;
-}
-
-input [type="text"]{
-  background-color: red;
-}
-
-#addNeed {
-  background-color: lightgray;
-
-}
-
-#addHave {
-  background-color: lightgray;
-  
 }
 
 h1 {
@@ -107,28 +72,14 @@ h2{
   text-align: left;
 }
 
-.list {
+.check-symbol {
   color: gray;
-  font-size: 22px;
-  padding: 0 !important;
-  width: 500px;
-  border: 1.3px solid gray
 }
 
-.list li {
-  list-style: none;
-  background-color: lightcyan;
-  border-bottom: 1.3px solid dotted lightblue;
-  text-indent: 25px;
-  height: auto;
-  padding: 10px;
-  text-transform: capitalize;
-  
+.check-symbol[checked="true"] {
+  color: green;
 }
 
-li a {
-  float: right;
-  text-decoration: none;
-  color: red;
+p, label {
+  font-size: 20px;
 }
-
