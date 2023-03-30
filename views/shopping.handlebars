@@ -10,15 +10,17 @@
     <div>
 </div>
 <br>
-<label class="text-lg" for="">Choose from a variety of in store items:</label>
+<div id="dropdown">
+    <label class="text-lg" for="">Choose from a variety of in store items:</label>
 
-<select id="itemList">
-    
-    {{#each products as |product| }}
-  <option value='{{product.name}}' data-price="{{product.price}}" data-category="{{product.category}}"> {{product.name}}</option>
-    {{/each}}
+    <select id="itemList">
+        
+        {{#each products as |product| }}
+    <option value='{{product.name}}' data-price="{{product.price}}" data-category="{{product.category}}"> {{product.name}}</option>
+        {{/each}}
 
-</select>
+    </select>
+</div>
 <button id="item-btn">Add Item</button>
 <br>
 <br>
