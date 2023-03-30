@@ -65,24 +65,3 @@ router.delete("/:id", withAuth, async (req, res) => {
 
 //Export router object
 module.exports = router;
-
-//GET route for '/' all product data. findAll retrieves data, sends as JSON response. If error, return 500 status
-//this needs to move to homeRoutes
-// router.get("/shoppingList", withAuth, async (req, res) => {
-
-//   try {
-//     const productData = await Product.findAll({});
-//     res.json(productData);
-
-//   } catch (err) {res.status(500).json(err)}
-// });
-
-//POST route for '/' new product data sent in req.body. Creates new product record and sends as JSON response. If error, return 400 status
-// router.post('/', withAuth, async (req, res) => {
-//   try {
-//     const productData = await productData.create(req.body);
-//     res.status(200).json(productData);
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });

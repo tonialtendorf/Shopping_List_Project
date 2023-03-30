@@ -75,24 +75,3 @@ router.post("/logout", (req, res) => {
 });
 
 module.exports = router;
-
-// router.post("/", async (req, res) => {
-//   try {
-//     const userData = await User.create({
-//       username: req.body.username,
-//       email: req.body.email,
-//       password: req.body.password,
-//     });
-
-
-//    //Set up sessions with the 'loggedIn' variable
-//     req.session.save(() => {
-//       // Set the 'loggedIn' session variable to 'true'
-
-//       res.status(200).json(dbUserData);
-//     });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
