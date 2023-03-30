@@ -6,6 +6,7 @@ const exphbs = require("express-handlebars");
 const routes = require("./controllers");
 // Import the custom helper methods
 const helpers = require("./utils/helpers");
+const handlebars = require("handlebars");
 
 const sequelize = require("./config/connection");
 // Initializes Sequelize with session store
@@ -42,12 +43,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
-
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log(`http://localhost:${PORT}/`));
-
 });
-
-

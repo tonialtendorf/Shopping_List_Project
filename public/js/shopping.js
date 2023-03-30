@@ -33,39 +33,60 @@
 //     }
 // }
 
+const itembtn = document.getElementById("item-btn");
 
-
-const itembtn = document.getElementById('item-btn')
-
-itembtn.addEventListener('click', async function() {
-    const name = document.getElementById('itemList').value
-    console.log(name)
-    if (name) {
-        
-            const res = await fetch('/api/shoppingList', {
-                method: 'POST',
-                body: JSON.stringify({name}), 
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            if (res.ok) {
-                // res.render('shopping', { name })
-                // document.location.reload()
-            } else {
-                alert('Something Went Wrong')
-            }
-        
+itembtn.addEventListener("click", async function () {
+  const name = document.getElementById("itemList").value.trim();
+  console.log(name);
+  if (name) {
+    const res = await fetch("/api/shoppingList", {
+      method: "POST",
+      body: JSON.stringify({ name }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (res.ok) {
+      if (response.ok) {
+        const newProduct = await response.json(); // parse the response JSON
+        const productTemplate = Handlebars.compile(
+          document.querySelector("#product-template").innerHTML
+        );
+        const productHtml = productTemplate(newProduct); // render the new item using Handlebars
+        document
+          .querySelector(".product-list")
+          .insertAdjacentHTML("beforeend", productHtml); // append the new i
+        // let listItem = document.createElement("li");
+        // listItem.textContent = text;
+        // listItem.className = "list-group-item";
+        // let checkSymbol = document.createElement("span");
+        // crossSymbol.innerHTML = "&#10006;";
+        // crossSymbol.className = "cross-symbol";
+        // crossSymbol.addEventListener("click", function () {
+        //   listItem.remove();
+        // });
+        // checkSymbol.addEventListener("click", function () {
+        //   this.setAttribute("checked", !this.getAttribute("checked"));
+        // });
+        // listItem.appendChild(checkSymbol);
+        // listItem.appendChild(crossSymbol);
+        // parent.appendChild(listItem);
+        // recentSearches.forEach((element) => {
+        //   makeListItem(element, ul);
+        // });
+      } else {
+        alert("Something Went Wrong");
+      }
     }
-})
+  }
+});
 
 //event listener for search button
-const btn = document.querySelector('.btn');
-const box = document.querySelector('.box');
-const history = document.querySelector('.history');
+const btn = document.querySelector(".btn");
+const box = document.querySelector(".box");
+const history = document.querySelector(".history");
 
-btn.addEventListener('click', function() {
-})
+btn.addEventListener("click", function () {});
 
 //localStorage
 const form = document.querySelector("#form");
@@ -99,28 +120,26 @@ if (localStorage.recentSearches && localStorage.recentSearches != "") {
 //     parent.appendChild(listItem);
 //   };
 
-  const makeListItem = (text, parent) => {
-    let listItem = document.createElement("li");
-    listItem.textContent = text;
-    listItem.className = "list-group-item";
-    let checkSymbol = document.createElement("span");
-    checkSymbol.innerHTML = "&#10004;";
-    checkSymbol.className = "check-symbol";
-    let crossSymbol = document.createElement("span");
-    crossSymbol.innerHTML = "&#10006;";
-    crossSymbol.className = "cross-symbol";
-    crossSymbol.addEventListener("click", function() {
-    
-      listItem.remove(); 
-    });
-    checkSymbol.addEventListener("click", function() {
-    
-      this.setAttribute('checked', !this.getAttribute('checked'));
-    });
-    listItem.appendChild(checkSymbol);
-    listItem.appendChild(crossSymbol);
-    parent.appendChild(listItem);
-  };
+const makeListItem = (text, parent) => {
+  let listItem = document.createElement("li");
+  listItem.textContent = text;
+  listItem.className = "list-group-item";
+  let checkSymbol = document.createElement("span");
+  checkSymbol.innerHTML = "&#10004;";
+  checkSymbol.className = "check-symbol";
+  let crossSymbol = document.createElement("span");
+  crossSymbol.innerHTML = "&#10006;";
+  crossSymbol.className = "cross-symbol";
+  crossSymbol.addEventListener("click", function () {
+    listItem.remove();
+  });
+  checkSymbol.addEventListener("click", function () {
+    this.setAttribute("checked", !this.getAttribute("checked"));
+  });
+  listItem.appendChild(checkSymbol);
+  listItem.appendChild(crossSymbol);
+  parent.appendChild(listItem);
+};
 
 recentSearches.forEach((element) => {
   makeListItem(element, ul);
