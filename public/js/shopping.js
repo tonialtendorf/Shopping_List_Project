@@ -26,6 +26,7 @@ itembtn.addEventListener("click", function () {});
 const dropdown = document.querySelector("#dropdown");
 const itemList = document.querySelector("#itemList");
 const addBtn = document.querySelector("#item-btn");
+const ul = document.querySelector("#ul");
 let dropdownSelect;
 
 if (localStorage.dropdownSelect && localStorage.dropdownSelect != "") {
@@ -55,6 +56,10 @@ const makeDropdownItem = (text, parent) => {
   parent.appendChild(listItem);
 };
 
+dropdownSelect.forEach((element) => {
+  makeListItem(element, ul);
+});
+
 dropdown.addEventListener("click", (event) => {
   event.preventDefault();
   if (
@@ -82,7 +87,7 @@ const form = document.querySelector("#form");
 const searchBar = document.querySelector("#cityInput");
 const submitButton = document.querySelector(".btn");
 const deleteButton = document.querySelector("#delete");
-const ul = document.querySelector("#ul");
+
 let recentSearches;
 
 if (localStorage.recentSearches && localStorage.recentSearches != "") {
