@@ -57,7 +57,7 @@ const makeDropdownItem = (text, parent) => {
 };
 
 dropdownSelect.forEach((element) => {
-  makeListItem(element, ul);
+  makeDropdownItem(element, ul);
 });
 
 dropdown.addEventListener("click", (event) => {
