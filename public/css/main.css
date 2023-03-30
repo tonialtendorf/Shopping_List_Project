@@ -9,6 +9,9 @@ body {
   background-color: darkgray;
 }
 
+.image-container {
+  text-align: center;
+}
 
 main {
   padding: 1rem;
