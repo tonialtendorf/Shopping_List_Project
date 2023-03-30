@@ -12,32 +12,7 @@ itembtn.addEventListener("click", async function () {
       },
     });
     if (res.ok) {
-        // const newProduct = await res.json(); // parse the response JSON
-        // const productTemplate = Handlebars.compile(
-        //   document.querySelector("#product-template").innerHTML
-        // );
-        // const productHtml = productTemplate(newProduct); // render the new item using Handlebars
-        // document
-        //   .querySelector(".product-list")
-        //   .insertAdjacentHTML("beforeend", productHtml); 
-        // let listItem = document.createElement("li");
-        // listItem.textContent = text;
-        // listItem.className = "list-group-item";
-        // let checkSymbol = document.createElement("span");
-        // crossSymbol.innerHTML = "&#10006;";
-        // crossSymbol.className = "cross-symbol";
-        // crossSymbol.addEventListener("click", function () {
-        //   listItem.remove();
-        // });
-        // checkSymbol.addEventListener("click", function () {
-        //   this.setAttribute("checked", !this.getAttribute("checked"));
-        // });
-        // listItem.appendChild(checkSymbol);
-        // listItem.appendChild(crossSymbol);
-        // parent.appendChild(listItem);
-        // recentSearches.forEach((element) => {
-        //   makeListItem(element, ul);
-        // });
+
       } else {
         alert("Something Went Wrong");
       }
@@ -80,10 +55,6 @@ const makeDropdownItem = (text, parent) => {
   parent.appendChild(listItem);
 };
 
-dropdownSelect.forEach((element) => {
-  makeDropdownItem(element, ul);
-});
-
 dropdown.addEventListener("click", (event) => {
   event.preventDefault();
   if (
@@ -119,24 +90,6 @@ if (localStorage.recentSearches && localStorage.recentSearches != "") {
 } else {
   recentSearches = [];
 }
-//   const makeListItem = (text, parent) => {
-//     let listItem = document.createElement("li");
-//     listItem.textContent = text;
-//     listItem.className = "list-group-item";
-//     let checkSymbol = document.createElement("span");
-//     checkSymbol.innerHTML = "&#10004;";
-//     checkSymbol.className = "check-symbol";
-//     let crossSymbol = document.createElement("span");
-//     crossSymbol.innerHTML = "&#10006;";
-//     crossSymbol.className = "cross-symbol";
-//     crossSymbol.addEventListener("click", function() {
-//       // Perform desired action when cross symbol is clicked
-//       listItem.remove(); // Remove the list item when cross symbol is clicked
-//     });
-//     listItem.appendChild(checkSymbol);
-//     listItem.appendChild(crossSymbol);
-//     parent.appendChild(listItem);
-//   };
 
 const makeListItem = (text, parent) => {
   let listItem = document.createElement("li");
